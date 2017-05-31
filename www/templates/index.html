@@ -1,0 +1,203 @@
+{% load static i18n %}
+{% block headerslider %}
+    <section class="header-slider clearfix">
+        <div class="slider owl-carousel">
+            <div class="slider-item" style='background-image: url("{% static "img/header-img1.jpg" %}");'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="intro">
+                                <h1>ООО &#34;Солнечные технологии&#34;</h1>
+                                <p>Продажа, монтаж и обслуживанием систем энергоснабжения и теплоснабжения <br> на
+                                    основе солнечной энергии</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item" style="background-image: url('{% static "img/header-img.jpeg" %}');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="intro intro-second">
+                                <h2>ООО &#34;Солнечные технологии&#34;</h2>
+                                <p>Продажа и обслуживание солнечных батарей и <br> солнечных коллекторов</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+    <section class="s-default s-help">
+        <div class="container">
+            <div class="row">
+                <h2>Мы поможем</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="s-help-item">
+                        <i class="fa fa-cog slow-spin" aria-hidden="true"></i>
+                        <p>
+                            Оптимизировать расходы на электричество, горячую воду и отопление
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="s-help-item">
+                        <i class="fa fa-refresh slow-spin" aria-hidden="true"></i>
+                        <p>
+                            Создать как полностью автономные энергетические системы, так и выполнить интеграцию
+                            солнечных
+                            систем отопления (энергоснабжения) в существующие системы
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="s-help-item">
+                        <i class="fa fa-sun-o slow-spin" aria-hidden="true"></i>
+                        <p>
+                            Обрести независимость от капризов коммунального электроснабжения и различных природных
+                            факторов
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="button-wrap">
+                    <a href="s-help.html" class="button">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="s-service s-default">
+        <div class="container">
+            <div class="row">
+                <h2>Наши услуги</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="s-service-item s-service-item-audition">
+                        <p>
+                            Проведём энергоаудит объекта
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="s-service-item s-service-item-question">
+                        <p>
+                            Ответим на все Ваши вопросы
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="s-service-item s-service-item-calc">
+                        <p>
+                            Выполним необходимые расчёты
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="s-service-item s-service-item-equip">
+                        <p>
+                            Смонтируем все оборудование
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="s-service-item s-service-item-system">
+                        <p>
+                            Сдадим работающую систему под ключ
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="s-service-item s-service-item-offer">
+                        <p>
+                            Заключим договор на обслуживание
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="button-wrap">
+                    <a href="s-service.html" class="button">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="s-default s-decision">
+        <div class="container">
+            <div class="row">
+                <h2>Решения для разных видов недвижимости</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="s-decision-item">
+                        <h3 class="first">Для загородной недвижимости</h3>
+                        <p>
+                            Есть чудный участок в прекрасном уголке, всего в 10 минутах или в 50 км езды от города?
+                            Вроде и
+                            достался недорого, но и продать невозможно без коммуникаций? В любом жилье необходима
+                            энергия,
+                            но если ближайший столб за 5 км от этого жилья, то электролиния на такое расстояние будет
+                            стоить
+                            как сама постройка. <br> В этом случаем Вам поможет энергия солнца
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="s-decision-item">
+                        <h3 class="hotel">Для гостиничного бизнеса</h3>
+                        <p>
+                            Новый сезон уже начинается? Новый сезон скоро начнется? Или сезон только закончился и уже
+                            нужно
+                            готовится к следующему? Новый сезон, несомненно, принесёт новых клиентов и новые доходы.
+                            <br>
+                            Начните зарабатывать уже сейчас
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="s-decision-item">
+                        <h3 class="gas">Нет газа? А он Вам нужен?</h3>
+                        <p>
+                            Множество домохозяйств построено на новых улицах без коммуникаций. Как правило
+                            электроснабжение
+                            есть, но газ только обещают. Через год, два, «очень скоро» и т.д. Даже если газопровод
+                            приходит
+                            на улицу это не значит, что он сразу придёт в дом. Подключение стоит денег и денег не малых
+                            <br>
+                            Так почему-бы не воспользоваться энергией солнца?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="button-wrap"><a href="s-decision.html" class="button">Подробнее</a></div>
+            </div>
+        </div>
+    </section>
+    <section class="s-default s-power">
+        <div class="container">
+            <div class="row">
+                <h2>Не хватает мощности?</h2>
+            </div>
+            <div class="row">
+                <p>ООО "Солнечные Технологии" могут помочь с этой проблемой. На сегодняшний день беспроблемно доступно
+                    100
+                    киловатт в 3-х фазах и более</p>
+            </div>
+            <div class="row">
+                <div class="button-wrap">
+                    <a href="s-power.html" class="button">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
