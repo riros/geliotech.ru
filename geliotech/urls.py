@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from www.views import index
+from www.views import page
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^(?P<page>[\w-]+)\.html/$', page),
+    url(r'^$', index)
 ]
