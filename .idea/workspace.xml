@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34aae125-4a76-4e43-bbf5-a9eabbce768c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/geliotech/urls.py" afterPath="$PROJECT_DIR$/geliotech/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/source/geliotech_riros.ru/index.html" afterPath="$PROJECT_DIR$/www/source/geliotech_riros.ru/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/source/geliotech_riros.ru/ysolar.html" afterPath="$PROJECT_DIR$/www/source/geliotech_riros.ru/ysolar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/static/css/fonts.min.css" afterPath="$PROJECT_DIR$/www/static/css/fonts.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/static/css/main.min.css" afterPath="$PROJECT_DIR$/www/static/css/main.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/index.html" afterPath="$PROJECT_DIR$/www/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/layout.html" afterPath="$PROJECT_DIR$/www/templates/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/power-source.html" afterPath="$PROJECT_DIR$/www/templates/power-source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/ysolar.html" afterPath="$PROJECT_DIR$/www/templates/ysolar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views.py" afterPath="$PROJECT_DIR$/www/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/www/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -44,8 +35,18 @@
       <file leaf-file-name="ysolar.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/ysolar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+            <state relative-caret-position="120">
+              <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -54,8 +55,8 @@
       <file leaf-file-name="ysolar.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/source/geliotech_riros.ru/ysolar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="2205" column="0" lean-forward="true" selection-start-line="2117" selection-start-column="0" selection-end-line="2205" selection-end-column="0" />
+            <state relative-caret-position="-140">
+              <caret line="1898" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="1898" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -69,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/www/source/geliotech_riros.ru/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3151">
-              <caret line="2394" column="0" lean-forward="true" selection-start-line="2394" selection-start-column="0" selection-end-line="2394" selection-end-column="0" />
+              <caret line="2394" column="0" lean-forward="false" selection-start-line="2394" selection-start-column="0" selection-end-line="2394" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -84,8 +85,8 @@
       <file leaf-file-name="power-source.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/power-source.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-300">
-              <caret line="86" column="20" lean-forward="true" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
+            <state relative-caret-position="-4920">
+              <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -101,25 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2160">
-              <caret line="2050" column="0" lean-forward="false" selection-start-line="2050" selection-start-column="0" selection-end-line="2050" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#42324#44608#0#HTML" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/lib64/python3.4/site-packages/django/contrib/contenttypes/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+            <state relative-caret-position="237">
+              <caret line="1971" column="5" lean-forward="false" selection-start-line="1971" selection-start-column="5" selection-end-line="1971" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -129,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/www/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -183,7 +170,6 @@
         <option value="$PROJECT_DIR$/Site/templates/index.html" />
         <option value="$PROJECT_DIR$/Site/templates/layout.html" />
         <option value="$PROJECT_DIR$/geliotech/settings.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/www/static/css/main.min.css" />
         <option value="$PROJECT_DIR$/www/static/css/fonts.min.css" />
         <option value="$PROJECT_DIR$/geliotech/urls.py" />
@@ -191,9 +177,10 @@
         <option value="$PROJECT_DIR$/www/templates/power-source.html" />
         <option value="$PROJECT_DIR$/www/views.py" />
         <option value="$PROJECT_DIR$/www/templates/ysolar.html" />
-        <option value="$PROJECT_DIR$/www/source/geliotech_riros.ru/ysolar.html" />
         <option value="$PROJECT_DIR$/www/source/geliotech_riros.ru/index.html" />
+        <option value="$PROJECT_DIR$/www/source/geliotech_riros.ru/ysolar.html" />
         <option value="$PROJECT_DIR$/www/templates/layout.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -594,6 +581,28 @@
       <option name="presentableId" value="Default" />
       <updated>1490683771540</updated>
     </task>
+    <task id="LOCAL-00001" summary="save">
+      <created>1496261824069</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1496261824069</updated>
+    </task>
+    <task id="LOCAL-00002" summary="save">
+      <created>1496261840606</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1496261840606</updated>
+    </task>
+    <task id="LOCAL-00003" summary="save">
+      <created>1496262139225</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1496262139225</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -604,7 +613,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50977653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -643,6 +652,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="save" />
+    <option name="LAST_COMMIT_MESSAGE" value="save" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -881,14 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/static/css/fonts.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -937,14 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/power-source.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="86" column="20" lean-forward="true" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geliotech/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -956,25 +953,17 @@
     <entry file="file://$PROJECT_DIR$/www/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/source/geliotech_riros.ru/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3151">
-          <caret line="2394" column="0" lean-forward="true" selection-start-line="2394" selection-start-column="0" selection-end-line="2394" selection-end-column="0" />
+          <caret line="2394" column="0" lean-forward="false" selection-start-line="2394" selection-start-column="0" selection-end-line="2394" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -985,18 +974,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/ysolar.html">
+    <entry file="file://$PROJECT_DIR$/www/templates/power-source.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        <state relative-caret-position="-4920">
+          <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/source/geliotech_riros.ru/ysolar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="2205" column="0" lean-forward="true" selection-start-line="2117" selection-start-column="0" selection-end-line="2205" selection-end-column="0" />
+        <state relative-caret-position="-140">
+          <caret line="1898" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="1898" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1005,15 +994,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2160">
-          <caret line="2050" column="0" lean-forward="false" selection-start-line="2050" selection-start-column="0" selection-end-line="2050" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#42324#44608#0#HTML" expanded="false" />
-          </folding>
+        <state relative-caret-position="237">
+          <caret line="1971" column="5" lean-forward="false" selection-start-line="1971" selection-start-column="5" selection-end-line="1971" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/ysolar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
