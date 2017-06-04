@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% load static www_templatetags %}
+{% block extraheadcss %}
+    <style>
+        .s-products .s-products-item{
+{#            height: 430px;#}
+            padding: 10px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <section class="s-products">
+        <div class="container">
+            {% for product in products %}
+            <div class="col-md-6 col-sm-6">
+                <div class="s-products-item clearfix">
+                    <h4><a href="/{{ catalog.alias }}/{{ product.id }}">{{ product.name }}</a></h4>
+
+                    <div class="img-wrap"><img src="{{ product.img.url }}"
+                                               alt="Солнечный коллектор IntorSolar 2 кв м"></div>
+                    <div class="s-products-item-performance">
+                        <ul>
+                            <li><span>Цена:</span>{{ product.price|nacenka:product.ampl }} руб.</li>
+                            <li><span>Наличие на складе:</span> {{ product.amount }} шт.</li>
+                            <li><span>Условия оплаты:</span> возможна рассрочка</li>
+                            <li><span>Доставка:</span> возможна доставка</li>
+                        </ul>
+                    </div>
+
+                    <div class="s-products-item-descr">
+                        <p>{{ product.desc|truncatewords:25 }}</p>
+                        <div class="button-wrap"><a href="/{{ catalog.alias }}/{{ product.id }}" class="button">Подробнее</a></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

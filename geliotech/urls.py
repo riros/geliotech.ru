@@ -16,11 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from www.views import index
-from www.views import page
+from www.views import index, page, catalog, product
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^(?P<page>[\w-]+)\.html/$', page),
+    url(r'^(?P<page>[\w-]+)\.html/$', page, name='index'),
+    url(r'^(?P<catalog_alias>[\w-]+)/$', catalog, name='catalog'),
+    url(r'^(?P<catalog_alias>[\w-]+)/(?P<id>\d+)$', product, name='product'),
     url(r'^$', index)
 ]

@@ -1,3 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 __pycache__
+www/static/media
+!www/static/media/.keepfile
+/db.sqlite3

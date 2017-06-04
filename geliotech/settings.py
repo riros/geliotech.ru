@@ -25,7 +25,7 @@ SECRET_KEY = 'b98y_dzlhljr@9maj5gl7w@%c^xoxjgrpwst1%gsh%yg4l9$89'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['geliotech.ru']
+ALLOWED_HOSTS = ['geliotech.ru', '*']
 
 
 # Application definition
@@ -120,3 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = 'http://localhost/statics/geliotech/'
+
+MEDIA_ROOT = "/home/riros/work/tbo/yad/python/parsers/geliotech.ru/www/static/media"
+MEDIA_URL = 'http://localhost/statics/geliotech/media/'
+
+
