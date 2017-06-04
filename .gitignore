@@ -1,5 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea
+/.idea
 __pycache__
 www/static/media
 !www/static/media/.keepfile
