@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static www_templatetags %}
+{% block extraheadcss %}
+    <style>
+        .s-products .s-products-item {
+        {#            height: 430px;#} padding: 10px;
+
+        }
+
+        .s-products #plist {
+            list-style: none;
+        }
+
+        .s-products .pli {
+            width: 50%;
+            position: relative;
+            float: left;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <section class="s-products">
+        <div class="container">
+            <ul id="plist">
+                {% if blogs %}
+                {% for blog in blogs %}
+                    <li class="pli">
+                        <div class="s-products-item clearfix">
+                            <h4>{{ blog.title }}</h4>
+
+                            <div class="img-wrap"><img src="{{ blog.img.url }}"
+                                                       alt=""></div>
+                            <div class="s-products-item-performance">
+                                {{ blog.desc|truncatewords:30 }}                            </div>
+                            <div class="s-products-item-descr">
+                                {{ blog.date }}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% else %}
+                    <h1>Нет новостей</h1>
+            {% endif %}
+            </ul>
+        </div>
+    </section>
+{% endblock %}

@@ -16,7 +16,7 @@ def islist(val):
 
 @register.filter()
 def isactive(val):
-    return isinstance(val, dict) and ('active' in val)
+    return isinstance(val, dict) and (val['active'])
 
 
 @register.filter()
@@ -46,12 +46,12 @@ def kratnoe(val, k):
 
 @register.filter()
 def nacenka(val, i):
-    return val * i
+    return int(val * i)
 
 
 @register.filter()
 def key(val):
-    for k,v in val.items():
+    for k, v in val.items():
         return k
 
 

@@ -15,8 +15,8 @@ import urllib3, urllib.parse
 
 from django.core.files.storage import FileSystemStorage
 from django.core.files.base import ContentFile
+from django.conf import settings
 
-SRC_SITE = "http://ekoproekt-energo.ru/"
 
 
 class Command(BaseCommand):
@@ -71,7 +71,7 @@ class Command(BaseCommand):
                 match = re.search('\d+', tovar.div.h4.text)
                 price = match.group(0) if match else 0
 
-                filecontent = retrieve_image(SRC_SITE, tovar.div.img['src'])
+                filecontent = retrieve_image(settings.SRC_SITE, tovar.div.img['src'])
 
                 item = {
                     'source_url': product_url,
@@ -81,13 +81,14 @@ class Command(BaseCommand):
                     'catalog': cat_name,
                     'catalog_hr': desc,
                     'name': soup_item.a.h4.text,
-                    'desc': tovar.div.find_next_siblings('div', class_='tovartext1')[0].text
+                    'desc': str(tovar.div.find_next_siblings('div', class_='tovartext1')[0])
                 }
                 items.append(item)
 
                 tovar, created = Product.objects.get_or_create(
                     name=item['name'],
                 )
+
                 tovar.cat = Catalog.objects.get(alias=item['catalog'])
                 tovar.name = item['name']
                 tovar.desc = item['desc']
@@ -98,10 +99,11 @@ class Command(BaseCommand):
                     if not created: tovar.img.delete(False)
                     tovar.img.save(item['img_src_href'], filecontent)
                 else:
-                    filecontent = retrieve_image(SRC_SITE, "images/tovar/gvs/unnamed.png")
+                    filecontent = retrieve_image(settings.SRC_SITE, "images/tovar/gvs/unnamed.png")
                     tovar.img.save("images/tovar/gvs/unnamed.png", filecontent)
-                    print("Error url: %s" % (SRC_SITE + item['img_src_href']))
+                    print("Error url: %s" % (settings.SRC_SITE + item['img_src_href']))
 
                 tovar.price = item['price']
                 tovar.imported = True
                 tovar.save()
+

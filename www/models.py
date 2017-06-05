@@ -16,16 +16,16 @@ class Catalog(Model):
     imported = BooleanField(default=False, verbose_name="Импортировано")
 
     class Meta:
-        verbose_name = 'Каталог товаров'
-        verbose_name_plural = 'Каталог товаров'
+        verbose_name = 'Каталоги товаров'
+        verbose_name_plural = 'Каталоги товаров'
+
+
+def dynamic_path(inst, fn):
+    name, ext =  path.splitext(fn)
+    return 'products/%s/%s%s' % (inst.cat.alias, md5(fn.encode()).hexdigest(), ext)
 
 
 class Product(Model):
-    @staticmethod
-    def dynamic_path(inst, filename):
-        name, ext = path.splitext(filename)
-        return 'products/%s/%s%s' % (inst.cat.alias, md5(filename.encode()).hexdigest(), ext)
-
     name = CharField(max_length=255, null=False, verbose_name='Наименование товара')
     desc = TextField(null=False, verbose_name='Описание')
     source_url = URLField(verbose_name='Адрес источника', null=False)
@@ -44,9 +44,17 @@ class Product(Model):
                      )
 
     class Meta:
-        verbose_name = 'Товар'
-        verbose_name_plural = 'Товар'
+        verbose_name = 'Товары'
+        verbose_name_plural = 'Товары'
 
 
-class Test(Model):
-    pass
+class Blog(Model):
+    title = CharField(max_length=255, null=False, verbose_name='Заголовок')
+    date = DateField(auto_now=True, verbose_name='Дата')
+    desc = TextField(verbose_name='Текст новости')
+    active = BooleanField(default=True, verbose_name='Актовность')
+    img = ImageField(verbose_name='Картинка', upload_to='blogs_images')
+
+    class Meta:
+        verbose_name = 'Новости'
+        verbose_name_plural = 'Новости'

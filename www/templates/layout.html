@@ -1970,42 +1970,42 @@
 </head>
 <body>
 {% if not DEBUG %}
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript"> (function (d, w, c) {
-    (w[c] = w[c] || []).push(function () {
-        try {
-            w.yaCounter41110834 = new Ya.Metrika({
-                id: 41110834,
-                clickmap: true,
-                trackLinks: true,
-                accurateTrackBounce: true,
-                webvisor: true
-            });
-        } catch (e) {
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript"> (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter41110834 = new Ya.Metrika({
+                    id: 41110834,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true
+                });
+            } catch (e) {
+            }
+        });
+        var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+            n.parentNode.insertBefore(s, n);
+        };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
         }
-    });
-    var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
-        n.parentNode.insertBefore(s, n);
-    };
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = "https://mc.yandex.ru/metrika/watch.js";
-    if (w.opera == "[object Opera]") {
-        d.addEventListener("DOMContentLoaded", f, false);
-    } else {
-        f();
-    }
-})(document, window, "yandex_metrika_callbacks"); </script>
-<noscript>
-    <div><img src="https://mc.yandex.ru/watch/41110834" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript> <!-- /Yandex.Metrika counter -->
+    })(document, window, "yandex_metrika_callbacks"); </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/41110834" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript> <!-- /Yandex.Metrika counter -->
 {% endif %}
 <header class="main-head">
     <div class="top-line">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-3 col-sm-6 col-xs-4">
-                    <div class="img-wrap"><a href="/index.html"><img class="ico-svg"
+                    <div class="img-wrap"><a href="#"><img class="ico-svg"
                                                                      src="{% static "img/technology.svg" %}"
                                                                      alt="ООО Солнечные технологии. Солнечные батареи. Продажа и
                         монтаж солнечных батарей. Краснодарский край: Краснодар, Новороссийск, Анапа, Геленджик, Абинск,
@@ -2020,57 +2020,74 @@
                 </div>
                 <div class="col-lg-5 col-md-6 col-lg-pull-2 col-md-pull-3">
                     {% if menu %}
-                    <nav class="main-nav clearfix hidden-sm hidden-xs">
-                        <ul>
-                            {% for menuitem in menu %}
-                                {% if menuitem|submenupresent %}
-                                    <li {% if menuitem|isactive %}class="current-menu-item"{% endif %}>
-                                        <a href="{{ menuitem|menupath }}">{{ menuitem|menuname }}</a>
-                                        <ul class="sub-menu">
-                                            {% for submenuitem in menuitem|submenu %}
-                                                <li>
-                                                    <a href="/{{ submenuitem|menupath }}">{{ submenuitem|menuname }}</a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                {% else %}
-                                    <li {% if menuitem|isactive %}class="current-menu-item"{% endif %}>
-                                        <a href="{{ menuitem|menupath }}">{{ menuitem|menuname }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </nav>
+                        <nav class="main-nav clearfix hidden-sm hidden-xs">
+                            <ul>
+                                {% for menuitem in menu %}
+                                    {% if menuitem|submenupresent %}
+                                        <li {% if menuitem|isactive %}class="current-menu-item"{% endif %}>
+                                            {% if submenuitem|menupath != '' %}
+                                                <a href="{{ menuitem|menupath }}">{{ menuitem|menuname }}</a>
+                                            {% else %}
+                                                <a href="#">{{ menuitem|menuname }}</a>
+                                            {% endif %}
+                                            <ul class="sub-menu">
+                                                {% for submenuitem in menuitem|submenu %}
+                                                    <li>
+                                                        {% if submenuitem|menupath != '' %}
+                                                            <a href="/{{ submenuitem|menupath }}">
+                                                                {{ submenuitem|menuname }}
+                                                            </a>
+                                                        {% else %}
+                                                            {{ submenuitem|menuname }}
+                                                        {% endif %}
+
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% else %}
+                                        <li {% if menuitem|isactive %}class="current-menu-item"{% endif %}>
+                                            <a href="{{ menuitem|menupath }}">{{ menuitem|menuname }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </nav>
                     {% endif %}
                 </div>
             </div>
         </div>
 
-        <nav class="hidden-nav">
-            <ul>
-                <li class="active"><a href="/index.html">Главная</a></li>
-                <li><a href="/products.html">Продукция</a></li>
-                <!-- <li><a href="#">Прайс</a></li> -->
-                <li><a href="/contacts.html">Контакты</a></li>
-                <li><a href="/ysolar.html">ЯSolar</a></li>
-            </ul>
-        </nav>
+        {#        <nav class="hidden-nav">#}
+        {#            <ul>#}
+        {#                <li class="active"><a href="/index.html">Главная</a></li>#}
+        {#                <li><a href="/products.html">Продукция</a></li>#}
+        {#                <!-- <li><a href="#">Прайс</a></li> -->#}
+        {#                <li><a href="/contacts.html">Контакты</a></li>#}
+        {#                <li><a href="/ysolar.html">ЯSolar</a></li>#}
+        {#            </ul>#}
+        {#        </nav>#}
     </div>
     {% block headerslider %}{% endblock %}
 </header>
 {% if breadcrums %}
-<section class="cookies">
-    <div class="container">
-        <div class="row">
-            <ul>
-                {% for bc in breadcrums %}
-                <li><a href="/{{ bc|key }}">{{ bc|val }}</a></li>
-                {% endfor %}
-            </ul>
+    <section class="cookies">
+        <div class="container">
+            <div class="row">
+                <ul>
+                    {% for bc in breadcrums %}
+                        <li>
+                            {% if bc|key != '' %}
+                                <a href="/{{ bc|key }}">{{ bc|val }}</a>
+                            {% else %}
+                                <span>{{ bc|val }}</span>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endif %}
 {% block content %}{% endblock %}
 <footer class="main-footer">
@@ -2102,7 +2119,6 @@
             <div class="col-lg-4 col-md-12">
                 <form class="contact-form">
                     <input type="hidden" name="project_name" value="geliotech">
-                    <input type="hidden" name="admin_email" value="fedyaevboris@mail.ru">
                     <input type="hidden" name="form_subject" value="Заявка с сайта">
                     <div class="contact-form-head">
                         <h4>Оставить заявку</h4>
@@ -2122,41 +2138,42 @@
         </div>
         <div class="row">
             {% if not DEBUG %}
-            <!-- Yandex.Metrika informer --> <a href="https://metrika.yandex.ru/stat/?id=41110834&amp;from=informer"
-                                                target="_blank" rel="nofollow"><img
-                src="https://informer.yandex.ru/informer/41110834/3_1_FFFFFFFF_FFFFFFFF_0_pageviews"
-                style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика"
-                title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"/></a>
-            <!-- /Yandex.Metrika informer --> <!-- Yandex.Metrika counter -->
-            <script type="text/javascript"> (function (d, w, c) {
-                (w[c] = w[c] || []).push(function () {
-                    try {
-                        w.yaCounter41110834 = new Ya.Metrika({
-                            id: 41110834,
-                            clickmap: true,
-                            trackLinks: true,
-                            accurateTrackBounce: true,
-                            webvisor: true
-                        });
-                    } catch (e) {
+                <!-- Yandex.Metrika informer --> <a href="https://metrika.yandex.ru/stat/?id=41110834&amp;from=informer"
+                                                    target="_blank" rel="nofollow"><img
+                    src="https://informer.yandex.ru/informer/41110834/3_1_FFFFFFFF_FFFFFFFF_0_pageviews"
+                    style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика"
+                    title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"/></a>
+                <!-- /Yandex.Metrika informer --> <!-- Yandex.Metrika counter -->
+                <script type="text/javascript"> (function (d, w, c) {
+                    (w[c] = w[c] || []).push(function () {
+                        try {
+                            w.yaCounter41110834 = new Ya.Metrika({
+                                id: 41110834,
+                                clickmap: true,
+                                trackLinks: true,
+                                accurateTrackBounce: true,
+                                webvisor: true
+                            });
+                        } catch (e) {
+                        }
+                    });
+                    var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+                    s.type = "text/javascript";
+                    s.async = true;
+                    s.src = "https://mc.yandex.ru/metrika/watch.js";
+                    if (w.opera == "[object Opera]") {
+                        d.addEventListener("DOMContentLoaded", f, false);
+                    } else {
+                        f();
                     }
-                });
-                var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
-                    n.parentNode.insertBefore(s, n);
-                };
-                s.type = "text/javascript";
-                s.async = true;
-                s.src = "https://mc.yandex.ru/metrika/watch.js";
-                if (w.opera == "[object Opera]") {
-                    d.addEventListener("DOMContentLoaded", f, false);
-                } else {
-                    f();
-                }
-            })(document, window, "yandex_metrika_callbacks"); </script>
-            <noscript>
-                <div><img src="https://mc.yandex.ru/watch/41110834" style="position:absolute; left:-9999px;" alt=""/>
-                </div>
-            </noscript> <!-- /Yandex.Metrika counter -->
+                })(document, window, "yandex_metrika_callbacks"); </script>
+                <noscript>
+                    <div><img src="https://mc.yandex.ru/watch/41110834" style="position:absolute; left:-9999px;"
+                              alt=""/>
+                    </div>
+                </noscript> <!-- /Yandex.Metrika counter -->
             {% endif %}
         </div>
     </div>

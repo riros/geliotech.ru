@@ -19,8 +19,8 @@
 
 @font-face {
     font-family: FontAwesome;
-    src: url(http://localhost/statics/geliotech/fonts/font-awesome/fontawesome-webfont.eot?v=4.6.3);
-    src: url(http://localhost/statics/geliotech/fonts/font-awesome/fontawesome-webfont.eot?#iefix&v=4.6.3) format("embedded-opentype"), url(http://localhost/statics/geliotech/fonts/font-awesome/fontawesome-webfont.woff2?v=4.6.3) format("woff2"), url(http://localhost/statics/geliotech/fonts/font-awesome/fontawesome-webfont.woff?v=4.6.3) format("woff"), url(http://localhost/statics/geliotech/fonts/font-awesome/fontawesome-webfont.ttf?v=4.6.3) format("truetype"), url(http://localhost/statics/geliotech/fonts/font-awesome/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular) format("svg");
+    src: url(http://localhost/statics/geliotech/static/fonts/font-awesome/fontawesome-webfont.eot?v=4.6.3);
+    src: url(http://localhost/statics/geliotech/static/fonts/font-awesome/fontawesome-webfont.eot?#iefix&v=4.6.3) format("embedded-opentype"), url(http://localhost/statics/geliotech/static/fonts/font-awesome/fontawesome-webfont.woff2?v=4.6.3) format("woff2"), url(http://localhost/statics/geliotech/static/fonts/font-awesome/fontawesome-webfont.woff?v=4.6.3) format("woff"), url(http://localhost/statics/geliotech/static/fonts/font-awesome/fontawesome-webfont.ttf?v=4.6.3) format("truetype"), url(http://localhost/statics/geliotech/static/fonts/font-awesome/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular) format("svg");
     font-weight: 400;
     font-style: normal
 }
@@ -2759,8 +2759,8 @@
 
 @font-face {
     font-family: Flaticon;
-    src: url(http://localhost/statics/geliotech/fonts/Flaticon/Flaticon.eot);
-    src: url(http://localhost/statics/geliotech/fonts/Flaticon/Flaticon.eot?#iefix) format("embedded-opentype"), url(http://localhost/statics/geliotech/fonts/Flaticon/Flaticon.woff) format("woff"), url(http://localhost/statics/geliotech/fonts/Flaticon/Flaticon.ttf) format("truetype"), url(http://localhost/statics/geliotech/fonts/Flaticon/Flaticon.svg#Flaticon) format("svg");
+    src: url(http://localhost/statics/geliotech/static/fonts/Flaticon/Flaticon.eot);
+    src: url(http://localhost/statics/geliotech/static/fonts/Flaticon/Flaticon.eot?#iefix) format("embedded-opentype"), url(http://localhost/statics/geliotech/static/fonts/Flaticon/Flaticon.woff) format("woff"), url(http://localhost/statics/geliotech/static/fonts/Flaticon/Flaticon.ttf) format("truetype"), url(http://localhost/statics/geliotech/static/fonts/Flaticon/Flaticon.svg#Flaticon) format("svg");
     font-weight: 400;
     font-style: normal
 }
@@ -2768,7 +2768,7 @@
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     @font-face {
         font-family: Flaticon;
-        src: url(http://localhost/statics/geliotech/fonts/Flaticon/Flaticon.svg#Flaticon) format("svg")
+        src: url(http://localhost/statics/geliotech/static/fonts/Flaticon/Flaticon.svg#Flaticon) format("svg")
     }
 }
 
@@ -3159,6 +3159,11 @@
 }
 
 .cookies ul li a {
+    color: #8b9dbd;
+    font-size: .75em
+}
+
+.cookies ul li span {
     color: #8b9dbd;
     font-size: .75em
 }

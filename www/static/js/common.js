@@ -58,8 +58,8 @@ $(".header-slider .slider").owlCarousel({
 	$(".contact-form").submit(function() { //Change
 		var th = $(this);
 		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
+			type: "GET",
+			url: "/sendmail/", //Change
 			data: th.serialize()
 		}).done(function() {
 			alert("Thank you!");

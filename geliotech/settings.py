@@ -119,9 +119,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = 'http://localhost/statics/geliotech/'
+STATIC_URL = 'http://localhost/statics/geliotech/static/'
+STATIC_ROOT = '/var/www/localhost/htdocs/statics/geliotech/static/'
 
-MEDIA_ROOT = "/home/riros/work/tbo/yad/python/parsers/geliotech.ru/www/static/media"
+
+MEDIA_ROOT = "/var/www/localhost/htdocs/statics/geliotech/media/"
 MEDIA_URL = 'http://localhost/statics/geliotech/media/'
 
+SRC_SITE = "http://ekoproekt-energo.ru/"
 
+EMAIL_HOST = 'smpt.ya.ru'
+EMAIL_HOST_USER = 'your-username@gmail.com'
+EMAIL_HOST_PASSWORD = 'your-password'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
