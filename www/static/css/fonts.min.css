@@ -2,12 +2,12 @@
     font-family: roboto;
     font-style: normal;
     font-weight: 400;
-    src: url(http://localhost/statics/geliotech/static/fonts/RobotoRegular/RobotoRegular.eot?#iefix) format("embedded-opentype"), url(http://localhost/statics/geliotech/static/fonts/RobotoRegular/RobotoRegular.woff) format("woff"), url(http://localhost/statics/geliotech/static/fonts/RobotoRegular/RobotoRegular.ttf) format("truetype")
+    src: url(/static/fonts/RobotoRegular/RobotoRegular.eot?#iefix) format("embedded-opentype"), url(/static/fonts/RobotoRegular/RobotoRegular.woff) format("woff"), url(/static/fonts/RobotoRegular/RobotoRegular.ttf) format("truetype")
 }
 
 @font-face {
     font-family: roboto;
     font-style: normal;
     font-weight: 700;
-    src: url(http://localhost/statics/geliotech/static/fonts/RobotoBold/RobotoBold.eot?#iefix) format("embedded-opentype"), url(http://localhost/statics/geliotech/static/fonts/RobotoBold/RobotoBold.woff) format("woff"), url(http://localhost/statics/geliotech/static/fonts/RobotoBold/RobotoBold.ttf) format("truetype")
+    src: url(/static/fonts/RobotoBold/RobotoBold.eot?#iefix) format("embedded-opentype"), url(/static/fonts/RobotoBold/RobotoBold.woff) format("woff"), url(/static/fonts/RobotoBold/RobotoBold.ttf) format("truetype")
 }
