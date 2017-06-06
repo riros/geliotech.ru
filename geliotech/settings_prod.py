@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b98y_dzlhljr@9maj5gl7w@%c^xoxjgrpwst1%gsh%yg4l9$89'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -119,12 +119,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = 'http://localhost/statics/geliotech/static/'
-STATIC_ROOT = '/var/www/localhost/htdocs/statics/geliotech/static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/geliotech.ru/static/'
 
 
-MEDIA_ROOT = "/var/www/localhost/htdocs/statics/geliotech/media/"
-MEDIA_URL = 'http://localhost/statics/geliotech/media/'
+MEDIA_ROOT = "/var/www/geliotech.ru/media/"
+MEDIA_URL = '/media/'
 
 SRC_SITE = "http://ekoproekt-energo.ru/"
 

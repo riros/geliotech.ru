@@ -5,7 +5,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 import os, json, uuid
 import datetime
-import transliterate
 import bs4
 import requests as req
 import re
