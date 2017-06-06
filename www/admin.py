@@ -20,4 +20,6 @@ class ProductAdmin(admin.ModelAdmin):
     pass
 
 
-admin.autodiscover()
+admin.site.site_header = 'Geliotech.ru'
+admin.site.site_title = 'Администрирование'
+admin.site.index_title = 'Начало'

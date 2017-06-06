@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class EkoenergyConfig(AppConfig):
-    name = 'Site'
+class WwwConfig(AppConfig):
+    name = 'www'
+    verbose_name = 'Содержание сайта'
