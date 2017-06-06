@@ -19,13 +19,17 @@ from django.contrib import admin
 from www.views import index, page, catalog, product, \
     sendmail, news_list, news_item
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^(?P<page>[\w-]+)\.html/$', page, name='index'),
-    url(r'^catalog/(?P<catalog_alias>[\w-]+)/$', catalog, name='catalog'),
-    url(r'^catalog/(?P<catalog_alias>[\w-]+)/(?P<id>\d+)$', product, name='product'),
-    url(r'^sendmail/$', sendmail),
-    url(r'^news/', news_list, name='news_list'),
-    url(r'^news/(?P<id>\d+)$', news_item, name='news_item'),
-    url(r'^$', index)
-]
+                  url(r'^admin/', admin.site.urls),
+                  url(r'^(?P<page>[\w-]+)\.html/$', page, name='index'),
+                  url(r'^catalog/(?P<catalog_alias>[\w-]+)/$', catalog, name='catalog'),
+                  url(r'^catalog/(?P<catalog_alias>[\w-]+)/(?P<id>\d+)$', product, name='product'),
+                  url(r'^sendmail/$', sendmail),
+                  url(r'^news/', news_list, name='news_list'),
+                  url(r'^news/(?P<id>\d+)$', news_item, name='news_item'),
+                  url(r'^$', index)
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

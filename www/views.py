@@ -82,6 +82,7 @@ def product(r, catalog_alias, id):
 def news_list(r):
     blogs = Blog.objects.filter(active=True)[:6]
     return render(r, 'bloglist.html', context={
+        "DEBUG": settings.DEBUG,
         'blogs': blogs,
         'menu': activeatemenusection(get_menu(), 3)
     })
@@ -91,6 +92,7 @@ def news_item(r, id):
     blog = Blog.objects.filter(id=id, active=True)
     return render(r, 'newsitem.html',
                   context={
+                      "DEBUG": settings.DEBUG,
                       'blog': blog,
                       'menu': activeatemenusection(get_menu(), 3)
                   })
