@@ -6,25 +6,28 @@ from django.http import JsonResponse, HttpResponseForbidden
 
 from django.core.mail import send_mail
 
+
 # Create your views here.
-menu = [
-    {'path': '/',
-     'name': 'Главная'
-     },
-    {"path": '',
-     'name': 'Продукция',
-     'submenu': [{'path': 'catalog/' + cat.alias, 'name': cat.desc} for cat in
-                 Catalog.objects.all()]
-     },
-    {'path': '/ysolar.html',
-     'name': 'ЯSolar'},
-    {'path': '/news/',
-     'name': 'Новости'},
+def get_menu():
+    menu = [
+        {'path': '/',
+         'name': 'Главная'
+         },
+        {"path": '',
+         'name': 'Продукция',
+         'submenu': [{'path': 'catalog/' + cat.alias, 'name': cat.desc} for cat in
+                     Catalog.objects.all()]
+         },
+        {'path': '/ysolar.html',
+         'name': 'ЯSolar'},
+        {'path': '/news/',
+         'name': 'Новости'},
 
-]
+    ]
+    return menu
 
 
-def activeatemenusection(i):
+def activeatemenusection(menu, i):
     for m in menu:
         m['active'] = False
     menu[i]['active'] = True
@@ -40,7 +43,7 @@ def page(request, page):
                   context={
                       "DEBUG": settings.DEBUG,
                       'breadcrums': False,
-                      'menu': activeatemenusection(0),
+                      'menu': activeatemenusection(get_menu(), 0),
                   })
 
 
@@ -55,7 +58,7 @@ def catalog(r, catalog_alias):
                       'breadcrums': breadcrums,
                       'products': products,
                       'catalog': catalog,
-                      'menu': activeatemenusection(1)
+                      'menu': activeatemenusection(get_menu(), 1)
                   }
                   )
 
@@ -71,7 +74,7 @@ def product(r, catalog_alias, id):
                       "DEBUG": settings.DEBUG,
                       'breadcrums': breadcrums,
                       'product': product,
-                      'menu': activeatemenusection(1)
+                      'menu': activeatemenusection(get_menu(), 1)
                   }
                   )
 
@@ -80,7 +83,7 @@ def news_list(r):
     blogs = Blog.objects.filter(active=True)[:6]
     return render(r, 'bloglist.html', context={
         'blogs': blogs,
-        'menu': activeatemenusection(3)
+        'menu': activeatemenusection(get_menu(), 3)
     })
 
 
@@ -89,7 +92,7 @@ def news_item(r, id):
     return render(r, 'newsitem.html',
                   context={
                       'blog': blog,
-                      'menu': activeatemenusection(3)
+                      'menu': activeatemenusection(get_menu(), 3)
                   })
 
 

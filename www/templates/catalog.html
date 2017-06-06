@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="s-products-item-descr">
-                                <p>{{ product.desc|striptags|truncatewords:25 }}</p>
+                                <p>{{ product.desc|striptags|truncatechars:200 }}</p>
                                 <div class="button-wrap"><a href="/catalog/{{ catalog.alias }}/{{ product.id }}"
                                                             class="button">Подробнее</a></div>
                             </div>

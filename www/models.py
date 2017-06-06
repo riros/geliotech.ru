@@ -39,7 +39,7 @@ class Product(Model):
 
     img_src_href = URLField(verbose_name='Ссылка на оригинал изображения', null=False)
 
-    img = ImageField(verbose_name='Изобраение',
+    img = ImageField(verbose_name='Изображение',
                      upload_to=dynamic_path
                      )
 
@@ -52,7 +52,7 @@ class Blog(Model):
     title = CharField(max_length=255, null=False, verbose_name='Заголовок')
     date = DateField(auto_now=True, verbose_name='Дата')
     desc = TextField(verbose_name='Текст новости')
-    active = BooleanField(default=True, verbose_name='Актовность')
+    active = BooleanField(default=True, verbose_name='Активность')
     img = ImageField(verbose_name='Картинка', upload_to='blogs_images')
 
     class Meta:

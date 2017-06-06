@@ -18,6 +18,9 @@
         }
     </style>
 {% endblock %}
+{% block extraheadjs %}
+
+{% endblock %}
 {% block content %}
     <section class="s-products">
         <div class="container">
@@ -31,7 +34,7 @@
                             <div class="img-wrap"><img src="{{ blog.img.url }}"
                                                        alt=""></div>
                             <div class="s-products-item-performance">
-                                {{ blog.desc|truncatewords:30 }}                            </div>
+                                {{ blog.desc|truncatewords:30 }}</div>
                             <div class="s-products-item-descr">
                                 {{ blog.date }}
                             </div>
