@@ -5,6 +5,7 @@ from www.models import Catalog, Product, Blog
 from django.http import JsonResponse, HttpResponseForbidden
 
 from django.core.mail import send_mail
+from datetime import date
 
 
 # Create your views here.
@@ -80,7 +81,7 @@ def product(r, catalog_alias, id):
 
 
 def news_list(r):
-    blogs = Blog.objects.filter(active=True)[:6]
+    blogs = Blog.objects.filter(active=True, active_from_date__lte=date.today())[:6]
     return render(r, 'bloglist.html', context={
         "DEBUG": settings.DEBUG,
         'blogs': blogs,
@@ -89,7 +90,7 @@ def news_list(r):
 
 
 def news_item(r, id):
-    blog = Blog.objects.get(id=id, active=True)
+    blog = Blog.objects.get(id=id, active=True, active_from_date__lte=date.today())
     return render(r, 'newsitem.html',
                   context={
                       "DEBUG": settings.DEBUG,
