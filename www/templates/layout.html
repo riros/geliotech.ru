@@ -2006,8 +2006,8 @@
             <div class="row">
                 <div class="col-lg-5 col-md-3 col-sm-6 col-xs-4">
                     <div class="img-wrap"><a href="#"><img class="ico-svg"
-                                                                     src="{% static "img/technology.svg" %}"
-                                                                     alt="ООО Солнечные технологии. Солнечные батареи. Продажа и
+                                                           src="{% static "img/technology.svg" %}"
+                                                           alt="ООО Солнечные технологии. Солнечные батареи. Продажа и
                         монтаж солнечных батарей. Краснодарский край: Краснодар, Новороссийск, Анапа, Геленджик, Абинск,
                         Крымск."></a></div>
                     <div class="brand hidden-xs">ООО &#34;Солнечные Технологии&#34;</div>
@@ -2058,15 +2058,41 @@
             </div>
         </div>
 
-        {#        <nav class="hidden-nav">#}
-        {#            <ul>#}
-        {#                <li class="active"><a href="/index.html">Главная</a></li>#}
-        {#                <li><a href="/products.html">Продукция</a></li>#}
-        {#                <!-- <li><a href="#">Прайс</a></li> -->#}
-        {#                <li><a href="/contacts.html">Контакты</a></li>#}
-        {#                <li><a href="/ysolar.html">ЯSolar</a></li>#}
-        {#            </ul>#}
-        {#        </nav>#}
+        {% if menu %}
+            <nav class="hidden-nav">
+                <ul>
+                    {% for menuitem in menu %}
+                        {% if menuitem|submenupresent %}
+                            <li {% if menuitem|isactive %}class="current-menu-item"{% endif %}>
+                                {% if submenuitem|menupath != '' %}
+                                    <a href="{{ menuitem|menupath }}">{{ menuitem|menuname }}</a>
+                                {% else %}
+                                    <a href="#">{{ menuitem|menuname }}</a>
+                                {% endif %}
+                                <ul class="sub-menu">
+                                    {% for submenuitem in menuitem|submenu %}
+                                        <li>
+                                            {% if submenuitem|menupath != '' %}
+                                                <a href="/{{ submenuitem|menupath }}">
+                                                    {{ submenuitem|menuname }}
+                                                </a>
+                                            {% else %}
+                                                {{ submenuitem|menuname }}
+                                            {% endif %}
+
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li {% if menuitem|isactive %}class="current-menu-item"{% endif %}>
+                                <a href="{{ menuitem|menupath }}">{{ menuitem|menuname }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        {% endif %}
     </div>
     {% block headerslider %}{% endblock %}
 </header>
