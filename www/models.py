@@ -19,9 +19,17 @@ class Catalog(Model):
         verbose_name = 'Каталоги товаров'
         verbose_name_plural = 'Каталоги товаров'
 
+    def product_count(self):
+        return Product.objects.filter(cat=self.alias).count()
+
+    product_count.short_description = "Кол-во товаров"
+
+    def __str__(self):
+        return self.desc
+
 
 def dynamic_path(inst, fn):
-    name, ext =  path.splitext(fn)
+    name, ext = path.splitext(fn)
     return 'products/%s/%s%s' % (inst.cat.alias, md5(fn.encode()).hexdigest(), ext)
 
 
@@ -43,6 +51,9 @@ class Product(Model):
                      upload_to=dynamic_path
                      )
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = 'Товары'
         verbose_name_plural = 'Товары'
@@ -50,7 +61,8 @@ class Product(Model):
 
 class Blog(Model):
     title = CharField(max_length=255, null=False, verbose_name='Заголовок')
-    date = DateField(auto_now=True, verbose_name='Дата')
+    date_add = DateField(auto_now=True, verbose_name='Дата')
+    active_from_date = DateField(null=False, verbose_name='Дата активации')
     desc = TextField(verbose_name='Текст новости')
     active = BooleanField(default=True, verbose_name='Активность')
     img = ImageField(verbose_name='Картинка', upload_to='blogs_images')
@@ -58,3 +70,6 @@ class Blog(Model):
     class Meta:
         verbose_name = 'Новости'
         verbose_name_plural = 'Новости'
+
+    def __str__(self):
+        return self.title

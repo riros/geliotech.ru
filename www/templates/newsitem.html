@@ -24,7 +24,7 @@
         }
 
         .s-decision h3::before {
-            content: '';
+             content: '';
             font-family: Flaticon;
             font-size: 55px;
             color: #f55;
@@ -49,29 +49,17 @@
     <section class="s-default s-decision">
         <div class="container">
             <div class="row">
-                {% if blogs %}
-                    {% for blog in blogs %}
-                        <div class="col-md-6 col-sm-12">
-                            <div class="s-decision-item">
-                                <h3 class="first"><b>{{ blog.active_from_date }}</b> - {{ blog.title }}</h3>
-                                <div class="img-wrap"><img src="{{ blog.img.url }}"
-                                                           alt=""></div>
-                                <p>
-                                    {{ blog.desc|truncatewords:100 }}
-                                </p>
-
-                            </div>
-                            <div class="button-wrap clearfix"><a href="/news/{{ blog.id }}"
-                                                                 class="button">Подробнее</a></div>
-                        </div>
-
-                    {% endfor %}
-                {% else %}
-                    <h1>Нет новостей</h1>
-                {% endif %}
+                <div class="col-md-12 col-sm-12">
+                    <div class="s-decision-item">
+                        <h3 class="first">{{ blog.active_from_date }} - {{ blog.title }}</h3>
+                        <div class="img-wrap"><img src="{{ blog.img.url }}"></div>
+                        <p>
+                            {{ blog.desc }}
+                        </p>
+                    </div>
+                </div>
 
             </div>
         </div>
     </section>
-
 {% endblock %}

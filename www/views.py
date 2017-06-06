@@ -89,7 +89,7 @@ def news_list(r):
 
 
 def news_item(r, id):
-    blog = Blog.objects.filter(id=id, active=True)
+    blog = Blog.objects.get(id=id, active=True)
     return render(r, 'newsitem.html',
                   context={
                       "DEBUG": settings.DEBUG,

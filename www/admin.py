@@ -7,17 +7,16 @@ from www.models import Blog, Catalog, Product
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'date_add', 'active_from_date', 'img',)
 
 
 @admin.register(Catalog)
 class CatalogAdmin(admin.ModelAdmin):
-    pass
-
+    list_display = ('desc', 'alias', 'active', 'imported', 'product_count')
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'price', 'ampl', 'cat', 'active', 'imported', 'img' )
 
 
 admin.site.site_header = 'Geliotech.ru'
