@@ -22,7 +22,8 @@
             margin-bottom: 20px;
             float: left;
         }
-        .img-wrap img{
+
+        .img-wrap img {
             width: 200px;
             height: auto;
         }
@@ -44,10 +45,32 @@
             margin-top: 30px;
         }
 
+        .s-decision h3 {
+            height: 95px;
+        }
+
         @media only screen and (max-width: 768px) {
-            .s-products .pli {
+            .s-decision h3 {
+                height: auto;
+            }
+
+            .s-decision .img-wrap img {
+                width: 100%;
+                height: auto;
+            }
+            .s-decision .img-wrap {
                 width: 100%;
             }
+
+            .s-decision h3 {
+                height: auto;
+                margin-bottom: auto;
+            }
+            .s-decision .button-wrap {
+                margin-bottom: 20px;
+                margin-top: auto;
+            }
+
         }
     </style>
 {% endblock %}
@@ -62,7 +85,7 @@
                     {% for blog in blogs %}
                         <div class="col-md-6 col-sm-12">
                             <div class="s-decision-item">
-                                <h3 class="first"><b>{{ blog.active_from_date }}</b> - {{ blog.title }}</h3>
+                                <h3 class="first"><b>{{ blog.active_from_date }}</b> - {{ blog.title|truncatechars:80 }}</h3>
                                 <div class="img-wrap"><img src="{{ blog.img.url }}"
                                                            alt=""></div>
                                 <p>
