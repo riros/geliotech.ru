@@ -3,21 +3,29 @@
 {% block extraheadcss %}
     <style>
         .s-products .s-products-item {
-        {#            height: 430px;#} padding: 10px;
+            height: 500px;
+            padding: 10px;
 
         }
-        .s-products #plist{
+
+        .s-products #plist {
             list-style: none;
         }
-        .s-products .pli{
+
+        .s-products .pli {
             width: 50%;
             position: relative;
             float: left;
         }
 
-        @media only screen and (max-width: 768px){
-            .s-products .pli{
+        @media only screen and (max-width: 768px) {
+            .s-products .pli {
                 width: 100%;
+
+            }
+
+            .s-products .s-products-item{
+                height: auto;
             }
         }
     </style>
@@ -28,7 +36,7 @@
             <ul id="plist">
 
                 {% for product in products %}
-                    <li class="pli" >
+                    <li class="pli">
                         {#            <div class="col-md-6 col-sm-6">#}
                         <div class="s-products-item clearfix">
                             <h4><a href="/catalog/{{ catalog.alias }}/{{ product.id }}">{{ product.name }}</a></h4>
