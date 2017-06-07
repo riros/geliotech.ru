@@ -1,9 +1,11 @@
+from django.db import models
 from django.db.models \
     import CharField, UUIDField, Model, \
     IntegerField, TextField, FloatField, DateField, BooleanField, ManyToOneRel, URLField, ForeignKey, ImageField
 
 from os import path
 from hashlib import md5
+from django.utils.html import format_html
 
 
 # Create your models here.
@@ -33,13 +35,33 @@ def dynamic_path(inst, fn):
     return 'products/%s/%s%s' % (inst.cat.alias, md5(fn.encode()).hexdigest(), ext)
 
 
+# class ProductQuerySet(models.QuerySet):
+#     def authors(self):
+#         return self.filter()
+#
+#     def editors(self):
+#         return self.filter()
+#
+#
+# class ProductManager(models.Manager):
+#     def get_queryset(self):
+#         return ProductQuerySet(self.model, using=self._db)
+#
+#     def authors(self):
+#         return self.get_queryset().authors()
+#
+#     def editors(self):
+#         return self.get_queryset().editors()
+#     use_for_related_fields = True
+
+
 class Product(Model):
     name = CharField(max_length=255, null=False, verbose_name='Наименование товара')
     desc = TextField(null=False, verbose_name='Описание')
     source_url = URLField(verbose_name='Адрес источника', null=False)
     price = FloatField(null=False, verbose_name="цена поставщика", default=0)
     ampl = FloatField(verbose_name='Множитель наценки', default=1)
-    cat = ForeignKey(Catalog, null=True)
+    cat = ForeignKey(Catalog, null=True, verbose_name='Каталог')
 
     active = BooleanField(default=True, verbose_name='Показывать')
     imported = BooleanField(default=False, verbose_name="Импортировано")
@@ -51,8 +73,16 @@ class Product(Model):
                      upload_to=dynamic_path
                      )
 
+    # products = ProductManager()
+
     def __str__(self):
         return self.name
+
+    def img_link(self):
+        return format_html(
+            '<a href="%s">ссылка</a>' % self.img.url,
+        )
+    img_link.short_description ="Изображение"
 
     class Meta:
         verbose_name = 'Товары'

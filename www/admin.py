@@ -14,9 +14,15 @@ class BlogAdmin(admin.ModelAdmin):
 class CatalogAdmin(admin.ModelAdmin):
     list_display = ('desc', 'alias', 'active', 'imported', 'product_count')
 
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'ampl', 'cat', 'active', 'imported', 'img' )
+    list_display = ('id', 'name', 'price', 'ampl', 'cat', 'active', 'imported', 'img_link')
+    list_display_links = ('id',)
+    list_filter = ('cat', 'imported', 'active',)
+    list_editable = ('price', 'ampl', 'cat', 'name', 'active', 'imported')
+    search_fields = ('price', 'ampl', 'name')
+    list_per_page = 12
 
 
 admin.site.site_header = 'Geliotech.ru'
