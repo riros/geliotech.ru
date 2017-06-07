@@ -3241,7 +3241,7 @@
     }
 
     .s-products-item .img-wrap {
-        float: none;
+        /*float: none;*/
         display: block;
         margin-bottom: 15px
     }
@@ -3390,4 +3390,6 @@
     .s-decision h3.first::before {
         top: 55px
     }
+
+
 }
