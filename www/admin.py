@@ -25,7 +25,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('cat', 'imported', 'active',)
     list_editable = ('price', 'ampl', 'cat', 'active', 'imported')
     search_fields = ('price', 'ampl', 'name')
-
+    list_per_page = 10
     ordering = ['id']
 
 
