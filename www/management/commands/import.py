@@ -2,9 +2,6 @@ __author__ = 'riros <ivanvalenkov@gmail.com> 16.02.17'
 from django.core.management.base import BaseCommand, CommandError
 from django.core.exceptions import ObjectDoesNotExist
 
-from django.db import transaction
-import os, json, uuid
-import datetime
 import bs4
 import requests as req
 import re
@@ -12,10 +9,9 @@ import re
 from www.models import Catalog, Product
 import urllib3, urllib.parse
 
-from django.core.files.storage import FileSystemStorage
 from django.core.files.base import ContentFile
 from django.conf import settings
-
+import os
 
 
 class Command(BaseCommand):
@@ -31,14 +27,13 @@ class Command(BaseCommand):
                 eurl = urllib.parse.quote_plus(url)
                 ret = ContentFile(urllib3.PoolManager().request("GET", host + eurl).data)
             except:
-                # TODO Есть ссылки, которые имею символы в странной кодировке, и не подходят для запроса
                 return False
             return ret
 
-        site = 'http://ekoproekt-energo.ru'
+        site = settings.SRC_SITE
         cat_links = {}
         items = []
-        page = req.get(site + '/catalog/')
+        page = req.get(os.path.join(site, 'catalog'))
         lvl1 = bs4.BeautifulSoup(page.text, 'html.parser')
         soup_cats = lvl1.find("ul", class_="styled")
         lis = soup_cats.find_all('li')
@@ -46,18 +41,17 @@ class Command(BaseCommand):
             if len(li.a['href']):
                 cat_links.update({li.a['href'].replace('/', ''): li.a.text})
 
-        for cat_name, desc in cat_links.items():
-
-            catalog, created = Catalog.objects.get_or_create(alias=cat_name)
-            catalog.desc = desc
-            catalog.alias = cat_name
+        for cat_alias, hr_name in cat_links.items():
+            catalog, created = Catalog.objects.get_or_create(alias=cat_alias)
+            catalog.desc = hr_name
+            catalog.alias = cat_alias
             catalog.imported = True
             catalog.save()
 
-            soup_items = bs4.BeautifulSoup(req.get(site + '/' + cat_name).text, 'html.parser') \
+            soup_items = bs4.BeautifulSoup(req.get(os.path.join(site, cat_alias)).text, 'html.parser') \
                 .find_all('div', class_='service-item')
             for soup_item in soup_items:
-                product_url = site + '/' + soup_item.a['href']
+                product_url = os.path.join(settings.SRC_SITE, soup_item.a['href'])
                 try:
                     page_lvl3 = req.get(product_url)
                 except:
@@ -72,37 +66,45 @@ class Command(BaseCommand):
 
                 filecontent = retrieve_image(settings.SRC_SITE, tovar.div.img['src'])
 
+                desc = str(tovar.div.find_next_siblings('div', class_='tovartext1')[0])
+                desc_soup = bs4.BeautifulSoup(desc, 'html.parser')
+                for link in desc_soup.find_all('img'):
+                    print (link)
+                    desc = desc.replace(link.get('src'), os.path.join(settings.SRC_SITE, link.get('src')))
+                for link in desc_soup.find_all('a'):
+                    desc = desc.replace(link.get('href'), os.path.join(settings.SRC_SITE, link.get('href')))
+
                 item = {
                     'source_url': product_url,
-                    'image_thumb': site + '/' + soup_item.a.img['src'],
-                    'img_src_href': tovar.div.img['src'],
+                    'image_thumb': os.path.join(settings.SRC_SITE, soup_item.a.img['src']),
+                    'img_src_href': os.path.join(settings.SRC_SITE, tovar.div.img['src']),
                     'price': price,
-                    'catalog': cat_name,
-                    'catalog_hr': desc,
+                    'catalog': cat_alias,
+                    'catalog_hr': hr_name,
                     'name': soup_item.a.h4.text,
-                    'desc': str(tovar.div.find_next_siblings('div', class_='tovartext1')[0])
+                    'desc': desc
                 }
                 items.append(item)
 
-                tovar, created = Product.objects.get_or_create(
+                product, created = Product.objects.get_or_create(
                     name=item['name'],
                 )
 
-                tovar.cat = Catalog.objects.get(alias=item['catalog'])
-                tovar.name = item['name']
-                tovar.desc = item['desc']
-                tovar.source_url = item['source_url']
+                if product.imported:
+                    product.cat = Catalog.objects.get(alias=item['catalog'])
+                    product.name = item['name']
+                    product.desc = item['desc']
+                    product.source_url = item['source_url']
 
-                if filecontent:
-                    tovar.img_src_href = item['img_src_href']
-                    if not created: tovar.img.delete(False)
-                    tovar.img.save(item['img_src_href'], filecontent)
-                else:
-                    filecontent = retrieve_image(settings.SRC_SITE, "images/tovar/gvs/unnamed.png")
-                    tovar.img.save("images/tovar/gvs/unnamed.png", filecontent)
-                    print("Error url: %s" % (settings.SRC_SITE + item['img_src_href']))
+                    if filecontent:
+                        product.img_src_href = item['img_src_href']
+                        if not created:
+                            product.img.delete(False)
+                        product.img.save(item['img_src_href'], filecontent)
+                    else:
+                        filecontent = retrieve_image(settings.SRC_SITE, "images/tovar/gvs/unnamed.png")
+                        tovar.img.save("images/tovar/gvs/unnamed.png", filecontent)
+                        print("Error url: %s" % (settings.SRC_SITE + item['img_src_href']))
 
-                tovar.price = item['price']
-                tovar.imported = True
-                tovar.save()
-
+                    product.price = item['price']
+                    product.save()

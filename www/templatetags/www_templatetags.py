@@ -1,5 +1,7 @@
 __author__ = 'riros <ivanvalenkov@gmail.com> 02.06.17'
 from django import template
+from django.conf import settings
+import bs4
 
 register = template.Library()
 
@@ -59,3 +61,13 @@ def key(val):
 def val(val):
     for k, v in val.items():
         return v
+
+@register.filter()
+def fixlinks(val):
+    import os
+    soup = bs4.BeautifulSoup(val, 'html.parser')
+    for link in soup.find_all('img'):
+        val = val.replace(link.href, os.path.join(settings.SRC_SITE, link.get('src')))
+    for link in soup.find_all('a'):
+        val = val.replace(link.href, os.path.join(settings.SRC_SITE, link.get('href')))
+    return val

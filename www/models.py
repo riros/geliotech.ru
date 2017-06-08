@@ -64,7 +64,7 @@ class Product(Model):
     cat = ForeignKey(Catalog, null=True, verbose_name='Каталог')
 
     active = BooleanField(default=True, verbose_name='Показывать')
-    imported = BooleanField(default=False, verbose_name="Импортировано")
+    imported = BooleanField(default=False, verbose_name="Импортировать")
     amount = IntegerField(default=1, null=False, verbose_name="Доступное количество")
 
     img_src_href = URLField(verbose_name='Ссылка на оригинал изображения', null=False)
