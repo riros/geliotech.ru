@@ -69,7 +69,6 @@ class Command(BaseCommand):
                 desc = str(tovar.div.find_next_siblings('div', class_='tovartext1')[0])
                 desc_soup = bs4.BeautifulSoup(desc, 'html.parser')
                 for link in desc_soup.find_all('img'):
-                    print (link)
                     desc = desc.replace(link.get('src'), os.path.join(settings.SRC_SITE, link.get('src')))
                 for link in desc_soup.find_all('a'):
                     desc = desc.replace(link.get('href'), os.path.join(settings.SRC_SITE, link.get('href')))
