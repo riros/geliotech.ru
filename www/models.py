@@ -79,9 +79,11 @@ class Product(Model):
         return self.name
 
     def img_link(self):
-        return format_html(
-            '<a href="%s">ссылка</a>' % self.img.url,
-        )
+        if self.img:
+            ret = '<a href="%s">ссылка</a>' % self.img.url
+        else:
+            ret = '<span>нет</span>'
+        return format_html(ret)
     img_link.short_description ="Изображение"
 
     class Meta:
