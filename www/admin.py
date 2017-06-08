@@ -13,6 +13,8 @@ class BlogAdmin(admin.ModelAdmin):
 @admin.register(Catalog)
 class CatalogAdmin(admin.ModelAdmin):
     list_display = ('desc', 'alias', 'active', 'imported', 'product_count')
+    list_filter = ('imported', 'active')
+    list_editable = ('desc', 'imported', 'active')
 
 
 @admin.register(Product)
