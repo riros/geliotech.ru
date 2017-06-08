@@ -43,7 +43,7 @@ class Command(BaseCommand):
 
         for cat_alias, hr_name in cat_links.items():
             catalog, created = Catalog.objects.get_or_create(alias=cat_alias)
-            if catalog.imported:
+            if created or catalog.imported:
                 catalog.desc = hr_name
                 catalog.alias = cat_alias
                 catalog.imported = True
