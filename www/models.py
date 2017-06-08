@@ -70,7 +70,7 @@ class Product(Model):
     img_src_href = URLField(verbose_name='Ссылка на оригинал изображения', null=False)
 
     img = ImageField(verbose_name='Изображение',
-                     upload_to=dynamic_path
+                     upload_to=dynamic_path, null=False,
                      )
 
     # products = ProductManager()

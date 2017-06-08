@@ -23,7 +23,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'price', 'ampl', 'cat', 'active', 'imported', 'img_link')
     list_display_links = ('id',)
     list_filter = ('cat', 'imported', 'active',)
-    list_editable = ('price', 'ampl', 'cat', 'name', 'active', 'imported')
+    list_editable = ('price', 'ampl', 'cat', 'active', 'imported')
     search_fields = ('price', 'ampl', 'name')
     list_per_page = 12
 

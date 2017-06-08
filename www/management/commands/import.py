@@ -25,8 +25,9 @@ class Command(BaseCommand):
         def retrieve_image(host, url):
             try:
                 eurl = urllib.parse.quote_plus(url)
-                ret = ContentFile(urllib3.PoolManager().request("GET", host + eurl).data)
+                ret = ContentFile(urllib3.PoolManager().request("GET", os.path.join(host, eurl)).data)
             except:
+                print ("unable to get %s" % url)
                 return False
             return ret
 
@@ -65,7 +66,7 @@ class Command(BaseCommand):
                 match = re.search('\d+', tovar.div.h4.text)
                 price = match.group(0) if match else 0
 
-                filecontent = retrieve_image(settings.SRC_SITE, tovar.div.img['src'])
+
 
                 desc = str(tovar.div.find_next_siblings('div', class_='tovartext1')[0])
                 desc_soup = bs4.BeautifulSoup(desc, 'html.parser')
@@ -95,6 +96,8 @@ class Command(BaseCommand):
                     product.name = item['name']
                     product.desc = item['desc']
                     product.source_url = item['source_url']
+
+                    filecontent = retrieve_image(settings.SRC_SITE, tovar.div.img['src'])
 
                     if filecontent:
                         product.img_src_href = item['img_src_href']
