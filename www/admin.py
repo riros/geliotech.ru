@@ -15,6 +15,7 @@ class CatalogAdmin(admin.ModelAdmin):
     list_display = ('desc', 'alias', 'active', 'imported', 'product_count')
     list_filter = ('imported', 'active')
     list_editable = ('desc', 'imported', 'active')
+    list_display_links = ('alias', )
 
 
 @admin.register(Product)
