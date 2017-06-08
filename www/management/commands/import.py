@@ -90,7 +90,7 @@ class Command(BaseCommand):
                     name=item['name'],
                 )
 
-                if product.imported:
+                if created or product.imported:
                     product.cat = Catalog.objects.get(alias=item['catalog'])
                     product.name = item['name']
                     product.desc = item['desc']
@@ -107,4 +107,5 @@ class Command(BaseCommand):
                         print("Error url: %s" % (settings.SRC_SITE + item['img_src_href']))
 
                     product.price = item['price']
+                    product.imported=True
                     product.save()
