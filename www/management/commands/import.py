@@ -43,10 +43,11 @@ class Command(BaseCommand):
 
         for cat_alias, hr_name in cat_links.items():
             catalog, created = Catalog.objects.get_or_create(alias=cat_alias)
-            catalog.desc = hr_name
-            catalog.alias = cat_alias
-            catalog.imported = True
-            catalog.save()
+            if catalog.imported:
+                catalog.desc = hr_name
+                catalog.alias = cat_alias
+                catalog.imported = True
+                catalog.save()
 
             soup_items = bs4.BeautifulSoup(req.get(os.path.join(site, cat_alias)).text, 'html.parser') \
                 .find_all('div', class_='service-item')
