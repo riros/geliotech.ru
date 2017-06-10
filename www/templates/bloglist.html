@@ -89,7 +89,7 @@
                                 <div class="img-wrap"><img src="{{ blog.img.url }}"
                                                            alt=""></div>
                                 <p>
-                                    {{ blog.desc|truncatewords:60 }}
+                                    {{ blog.desc|truncatewords_html:60|safe }}
                                 </p>
 
                             </div>

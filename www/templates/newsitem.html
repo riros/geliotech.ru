@@ -58,7 +58,7 @@
                         <h3 class="first">{{ blog.active_from_date }} - {{ blog.title }}</h3>
                         <div class="img-wrap"><img src="{{ blog.img.url }}"></div>
                         <p>
-                            {{ blog.desc }}
+                            {{ blog.desc|safe }}
                         </p>
                     </div>
                 </div>
