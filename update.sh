@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 git pull
-python3 manage.py makemigrations
-python manage.py migrate
-sudo python3 manage.py collectstatic
+sudo python3 manage.py collectstatic --noinput
+sudo python3 manage.py migrate
+sudo systemctl restart uwsgi-app@geliotech
+sudo systemctl restart nginx
+
