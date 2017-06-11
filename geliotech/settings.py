@@ -30,7 +30,7 @@ else:
         raise "Нужно определить секретный ключ geliotech/secret/py "
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = platform.node() != 'geliotech.ru'
+DEBUG = platform.node() != PRODUCTION_PLATFORM_NODE
 
 ALLOWED_HOSTS = ['*']
 
