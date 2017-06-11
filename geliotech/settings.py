@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if platform.node() != 'geliotech.ru':
-    SECRET_KEY = ''
+    SECRET_KEY = '1234'
 else:
     try:
         import geliotech.secret
