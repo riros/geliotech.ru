@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -130,6 +129,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 THUMBNAIL_PRESERVE_FORMAT = True
+THUMBNAIL_DEBUG = True
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -146,5 +146,12 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'sorl.thumbnail': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+
     },
+
 }

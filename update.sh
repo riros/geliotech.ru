@@ -9,4 +9,4 @@ python manage.py thumbnail clear_delete_all
 sudo systemctl restart uwsgi-app@geliotech
 sudo systemctl restart nginx
 
-chown nginx:nginx -R ../geliotech/
+chown nginx:nginx -R ../geliotech.ru/
