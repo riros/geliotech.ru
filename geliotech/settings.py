@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
-import os
+import os, platform
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,10 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b98y_dzlhljr@9maj5gl7w@%c^xoxjgrpwst1%gsh%yg4l9$89'
+if platform.node() != 'geliotech.ru':
+    SECRET_KEY = ''
+else:
+    try:
+        import geliotech.secret
+    except:
+        raise "Нужно определить секретный ключ geliotech/secret/py "
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = platform.node() != 'geliotech.ru'
 
 ALLOWED_HOSTS = ['*']
 
@@ -129,7 +135,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 THUMBNAIL_PRESERVE_FORMAT = True
-THUMBNAIL_DEBUG = True
+THUMBNAIL_DEBUG = platform.node() != 'geliotech.ru'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
