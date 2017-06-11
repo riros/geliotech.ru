@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b98y_dzlhljr@9maj5gl7w@%c^xoxjgrpwst1%gsh%yg4l9$89'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -135,5 +135,24 @@ EMAIL_HOST_PASSWORD = 'your-password'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 THUMBNAIL_PRESERVE_FORMAT = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/all.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
