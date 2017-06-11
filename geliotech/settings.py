@@ -19,7 +19,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-if platform.node() != 'geliotech.ru':
+PRODUCTION_PLATFORM_NODE = 'srv'
+
+if platform.node() != PRODUCTION_PLATFORM_NODE:
     SECRET_KEY = '1234'
 else:
     try:
@@ -135,7 +137,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 THUMBNAIL_PRESERVE_FORMAT = True
-THUMBNAIL_DEBUG = platform.node() != 'geliotech.ru'
+THUMBNAIL_DEBUG = platform.node() != PRODUCTION_PLATFORM_NODE
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
