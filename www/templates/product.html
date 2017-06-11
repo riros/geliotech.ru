@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% load static www_templatetags %}
+{% load static www_templatetags thumbnail %}
 {% block extraheadcss %}
 
 {% endblock %}
@@ -10,8 +10,11 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="s-products-item clearfix">
                         <h4>{{ product.name }}</h4>
-                        <div class="img-wrap"><img src="{{ product.img.url }}"
-                                                   alt="{{ product.name }}"></div>
+                        <div class="img-wrap img-thumbnail">
+                            <a href="{{ product.img.url }}">
+                                <img src="{% thumbnail product.img "200" %}" alt="{{ product.name }}">
+                            </a>
+                        </div>
                         <div class="s-products-item-performance">
                             <ul>
                                 <li><span>Цена:</span> {{ product.price|nacenka:product.ampl }} руб.</li>
@@ -21,7 +24,7 @@
                             </ul>
                         </div>
                         <div class="s-products-item-descr">
-                           {{ product.desc|safe }}
+                            {{ product.desc|safe }}
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,13 @@
 from django.db import models
 from django.db.models \
     import CharField, UUIDField, Model, \
-    IntegerField, TextField, FloatField, DateField, BooleanField, ManyToOneRel, URLField, ForeignKey, ImageField
+    IntegerField, TextField, FloatField, DateField, BooleanField, ManyToOneRel, URLField, ForeignKey
 
 from os import path
 from hashlib import md5
 from django.utils.html import format_html
 
+from sorl.thumbnail import ImageField
 
 # Create your models here.
 

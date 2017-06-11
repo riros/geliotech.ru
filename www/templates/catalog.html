@@ -1,11 +1,9 @@
 {% extends 'layout.html' %}
-{% load static www_templatetags %}
+{% load static www_templatetags thumbnail %}
 {% block extraheadcss %}
     <style>
         .s-products .s-products-item {
-            height: 500px;
             padding: 10px;
-
         }
 
         .s-products #plist {
@@ -17,6 +15,7 @@
             position: relative;
             float: left;
         }
+
         .s-products .img-wrap {
             margin-right: 20px;
         }
@@ -27,7 +26,7 @@
 
             }
 
-            .s-products .s-products-item{
+            .s-products .s-products-item {
                 height: auto;
             }
 
@@ -35,6 +34,7 @@
                 float: left;
                 width: 50%;
             }
+
             .s-products-item .img-wrap img {
                 width: 100%;
                 height: auto;
@@ -55,30 +55,39 @@
             <ul id="plist">
 
                 {% for product in products %}
-                    <li class="pli">
-                        {#            <div class="col-md-6 col-sm-6">#}
-                        <div class="s-products-item clearfix">
-                            <h4><a href="/catalog/{{ catalog.alias }}/{{ product.id }}">{{ product.name }}</a></h4>
+                    {% if forloop.counter|kratnoe:2 %}
+                        <div class="row">{% endif %}
+                <li class="pli">
+                    {#            <div class="col-md-6 col-sm-6">#}
+                    <div class="s-products-item clearfix">
+                        <h4><a href="/catalog/{{ catalog.alias }}/{{ product.id }}">{{ product.name }}</a></h4>
 
-                            <div class="img-wrap"><img src="{{ product.img.url }}"
-                                                       alt="Солнечный коллектор IntorSolar 2 кв м"></div>
-                            <div class="s-products-item-performance">
-                                <ul>
-                                    <li><span>Цена:</span>{{ product.price|nacenka:product.ampl }} руб.</li>
-                                    <li><span>Наличие на складе:</span> {{ product.amount }} шт.</li>
-                                    <li><span>Условия оплаты:</span> возможна рассрочка</li>
-                                    <li><span>Доставка:</span> возможна доставка</li>
-                                </ul>
-                            </div>
+                        <div>
+                            <div class="img-wrap img-thumbnail"><img src="{% thumbnail product.img "190" %}"
+                                                                     alt="{{ product.name }}"></div>
 
-                            <div class="s-products-item-descr">
-                                <p>{{ product.desc|striptags|truncatechars:200 }}</p>
-                                <div class="button-wrap"><a href="/catalog/{{ catalog.alias }}/{{ product.id }}"
-                                                            class="button">Подробнее</a></div>
+                        </div>
+                        <div class="s-products-item-performance">
+                            <ul>
+                                <li><span>Цена:</span>{{ product.price|nacenka:product.ampl }} руб.</li>
+                                <li><span>Наличие на складе:</span> {{ product.amount }} шт.</li>
+                                <li><span>Условия оплаты:</span> возможна рассрочка</li>
+                                <li><span>Доставка:</span> возможна доставка</li>
+                            </ul>
+                        </div>
+                        <div class="s-products-item-descr">
+                            <span>{{ product.desc|striptags|truncatechars:200 }}</span>
+                            <div class="button-wrap">
+                                <a href="/catalog/{{ catalog.alias }}/{{ product.id }}"
+                                   class="button">Подробнее</a>
                             </div>
                         </div>
-                        {#            </div>#}
-                    </li>
+
+                    </div>
+                    {#            </div>#}
+                </li>
+                {% if not forloop.counter|kratnoe:2 %}
+                    </div>{% endif %}
                 {% endfor %}
             </ul>
 

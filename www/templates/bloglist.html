@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% load static www_templatetags %}
+{% load static www_templatetags thumbnail %}
 {% block extraheadcss %}
     <style>
         .s-products .s-products-item {
@@ -58,6 +58,7 @@
                 width: 100%;
                 height: auto;
             }
+
             .s-decision .img-wrap {
                 width: 100%;
             }
@@ -66,11 +67,18 @@
                 height: auto;
                 margin-bottom: auto;
             }
+
             .s-decision .button-wrap {
                 margin-bottom: 20px;
                 margin-top: auto;
             }
 
+        }
+
+        @media only screen and (max-width: 480px) {
+            .s-decision-item {
+                padding: 5px 0 20px;
+            }
         }
     </style>
 {% endblock %}
@@ -83,20 +91,24 @@
             <div class="row">
                 {% if blogs %}
                     {% for blog in blogs %}
-                        <div class="col-md-6 col-sm-12">
-                            <div class="s-decision-item">
-                                <h3 class="first"><b>{{ blog.active_from_date }}</b> - {{ blog.title|truncatechars:80 }}</h3>
-                                <div class="img-wrap"><img src="{{ blog.img.url }}"
-                                                           alt=""></div>
-                                <p>
+                        {% if forloop.counter|kratnoe:2 %}
+                            <div class="row">{% endif %}
+                    <div class="col-md-6 col-sm-12">
+                        <div class="s-decision-item">
+                            <h3 class="first"><b>{{ blog.active_from_date }}</b> - {{ blog.title|truncatechars:80 }}
+                            </h3>
+                            <div class="img-wrap img-thumbnail"><img src="{% thumbnail blog.img "200" %}"
+                                                                     alt=""></div>
+                            <span>
                                     {{ blog.desc|truncatewords_html:60|safe }}
-                                </p>
+                                </span>
 
-                            </div>
-                            <div class="button-wrap clearfix"><a href="/news/{{ blog.id }}"
-                                                                 class="button">Подробнее</a></div>
                         </div>
-
+                        <div class="button-wrap clearfix"><a href="/news/{{ blog.id }}"
+                                                             class="button">Подробнее</a></div>
+                    </div>
+                    {% if not forloop.counter|kratnoe:2 %}
+                        </div>{% endif %}
                     {% endfor %}
                 {% else %}
                     <h1>Нет новостей</h1>

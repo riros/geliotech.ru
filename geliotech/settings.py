@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'www',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,6 @@ EMAIL_HOST_USER = 'your-username@gmail.com'
 EMAIL_HOST_PASSWORD = 'your-password'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+TEMPLATE_DEBUG = False
+THUMBNAIL_PRESERVE_FORMAT = True

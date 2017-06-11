@@ -1,12 +1,13 @@
 from django.contrib import admin
-
+from django.contrib.admin import StackedInline, TabularInline
+from sorl.thumbnail.admin import AdminInlineImageMixin, AdminImageMixin
 # Register your models here.
 
 from www.models import Blog, Catalog, Product
 
 
 @admin.register(Blog)
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(AdminImageMixin, admin.ModelAdmin):
     list_display = ('title', 'date_add', 'active_from_date', 'img',)
 
 
@@ -19,7 +20,8 @@ class CatalogAdmin(admin.ModelAdmin):
 
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+# class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(AdminImageMixin, admin.ModelAdmin):
     list_display = ('id', 'name', 'price', 'ampl', 'cat', 'active', 'imported', 'img_link')
     list_display_links = ('id',)
     list_filter = ('cat', 'imported', 'active',)

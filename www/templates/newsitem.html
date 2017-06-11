@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% load static www_templatetags %}
+{% load static www_templatetags thumbnail %}
 {% block extraheadcss %}
     <style>
         .s-products .s-products-item {
@@ -24,7 +24,13 @@
         }
 
         .img-wrap img {
-            width: 80%;
+{#            width: 80%;#}
+        }
+
+        .wrapper:after {
+            content: '';
+            display: block;
+            clear: both;
         }
 
         .s-decision h3::before {
@@ -54,12 +60,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
-                    <div class="s-decision-item">
+                    <div class="s-decision-item wrapper">
                         <h3 class="first">{{ blog.active_from_date }} - {{ blog.title }}</h3>
-                        <div class="img-wrap"><img src="{{ blog.img.url }}"></div>
-                        <p>
+                        <div class="img-wrap img-thumbnail">
+                            <a href="{{ blog.img.url }}"><img src="{% thumbnail blog.img "640" %}"></a>
+                        </div>
+                        <span class="wrapper">
                             {{ blog.desc|safe }}
-                        </p>
+                        </span>
                     </div>
                 </div>
 

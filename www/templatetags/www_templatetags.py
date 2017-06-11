@@ -43,7 +43,7 @@ def submenu(val):
 
 @register.filter()
 def kratnoe(val, k):
-    return val % k
+    return bool(val % k)
 
 
 @register.filter()
@@ -61,6 +61,7 @@ def key(val):
 def val(val):
     for k, v in val.items():
         return v
+
 
 @register.filter()
 def fixlinks(val):
