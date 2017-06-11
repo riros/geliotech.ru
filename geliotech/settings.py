@@ -25,7 +25,7 @@ if platform.node() != PRODUCTION_PLATFORM_NODE:
     SECRET_KEY = '1234'
 else:
     try:
-        import geliotech.secret
+        from geliotech.secret import SECRET_KEY
     except:
         raise "Нужно определить секретный ключ geliotech/secret/py "
 
