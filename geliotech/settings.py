@@ -129,7 +129,7 @@ EMAIL_HOST_PASSWORD = 'your-password'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 THUMBNAIL_PRESERVE_FORMAT = True
 LOGGING = {
     'version': 1,
@@ -144,7 +144,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file'],
-            'level': 'DEBUG',
+            'level': 'ERROR',
             'propagate': True,
         },
     },
