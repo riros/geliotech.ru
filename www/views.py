@@ -84,6 +84,7 @@ def news_list(r):
     blogs = Blog.objects.filter(active=True, active_from_date__lte=date.today())[:6]
     return render(r, 'bloglist.html', context={
         "DEBUG": settings.DEBUG,
+        'breadcrums': False,
         'blogs': blogs,
         'menu': activeatemenusection(get_menu(), 3)
     })
@@ -95,6 +96,7 @@ def news_item(r, id):
                   context={
                       "DEBUG": settings.DEBUG,
                       'blog': blog,
+                      'breadcrums': False,
                       'menu': activeatemenusection(get_menu(), 3)
                   })
 
