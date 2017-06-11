@@ -6,3 +6,5 @@ __pycache__
 /static
 !/static/.keepfile
 /db.sqlite3
+*.log
+!/logs/.keepfile
