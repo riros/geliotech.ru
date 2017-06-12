@@ -41,7 +41,7 @@ def index(request):
 
 
 def page(request, page):
-    if not os.path.exists(os.path.join(settings.BASE_DIR, page + '.html')):
+    if not os.path.exists(os.path.join(settings.BASE_DIR, 'www/templates/' + page + '.html')):
         page = 'index'
 
     return render(request, page + '.html',
