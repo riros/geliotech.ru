@@ -5,9 +5,10 @@ from sorl.thumbnail.admin import AdminInlineImageMixin, AdminImageMixin
 
 from www.models import Blog, Catalog, Product
 
+from sorl_cropping import ImageCroppingMixin
 
 @admin.register(Blog)
-class BlogAdmin(AdminImageMixin, admin.ModelAdmin):
+class BlogAdmin(ImageCroppingMixin, admin.ModelAdmin):
     list_display = ('title', 'date_add', 'active_from_date', 'img',)
 
 

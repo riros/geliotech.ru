@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'www',
     'sorl.thumbnail',
+    'sorl_cropping'
 ]
 
 MIDDLEWARE = [
@@ -141,6 +142,8 @@ EMAIL_USE_TLS = True
 THUMBNAIL_FORMAT = 'WEBP'
 THUMBNAIL_QUALITY = 80
 THUMBNAIL_DEBUG = platform.node() != PRODUCTION_PLATFORM_NODE
+
+THUMBNAIL_ENGINE = 'sorl_cropping.engine.CropEngine'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

@@ -63,7 +63,7 @@
                     <div class="s-decision-item wrapper">
                         <h3 class="first">{{ blog.active_from_date }} - {{ blog.title }}</h3>
                         <div class="img-wrap img-thumbnail">
-                            <a href="{{ blog.img.url }}"><img src="{% thumbnail blog.img "640" %}"></a>
+                            <a href="{{ blog.img.url }}"><img src="{% thumbnail blog.img "640" crop=blog.cropping %}"></a>
                         </div>
                         <span class="wrapper">
                             {{ blog.desc|safe }}

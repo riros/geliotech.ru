@@ -8,7 +8,7 @@ from hashlib import md5
 from django.utils.html import format_html
 
 from sorl.thumbnail import ImageField
-
+from sorl_cropping import ImageRatioField
 # Create your models here.
 
 class Catalog(Model):
@@ -99,6 +99,7 @@ class Blog(Model):
     desc = TextField(verbose_name='Текст новости')
     active = BooleanField(default=True, verbose_name='Активность')
     img = ImageField(verbose_name='Картинка', upload_to='blogs_images')
+    cropping = ImageRatioField('img', '800x300')
 
     class Meta:
         verbose_name = 'Новости'

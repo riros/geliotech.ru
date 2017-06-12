@@ -98,7 +98,7 @@
                             <h3 class="first"><b>{{ blog.active_from_date }}</b> - {{ blog.title|truncatechars:80 }}
                             </h3>
                             <div class="img-wrap img-thumbnail">
-                                <img src="{% thumbnail blog.img "200" %}" alt="{{ blog.title }}"></div>
+                                <img src="{% thumbnail blog.img "200" crop=blog.cropping %}" alt="{{ blog.title }}"></div>
                             <span>{{ blog.desc|truncatewords_html:60|safe }}</span>
                         </div>
                         <div class="button-wrap clearfix"><a href="/news/{{ blog.id }}"
