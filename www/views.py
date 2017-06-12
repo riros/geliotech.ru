@@ -6,6 +6,7 @@ from django.http import JsonResponse, HttpResponseForbidden
 
 from django.core.mail import send_mail
 from datetime import date
+import os
 
 
 # Create your views here.
@@ -40,6 +41,9 @@ def index(request):
 
 
 def page(request, page):
+    if not os.path.exists(os.path.join(settings.BASE_DIR, page + '.html')):
+        page = 'index'
+
     return render(request, page + '.html',
                   context={
                       "DEBUG": settings.DEBUG,
