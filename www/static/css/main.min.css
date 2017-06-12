@@ -2914,7 +2914,17 @@
 
 .s-default p {
     font-size: 1em;
-    color: #ccd4e2
+    color: #6a82ab;
+}
+
+.s-default span {
+    font-size: 1em;
+    color: #6a82ab;
+}
+
+.s-default li {
+    font-size: 1em;
+    color: #6a82ab;
 }
 
 .s-help {
@@ -3389,6 +3399,5 @@
     .s-decision h3.first::before {
         top: 55px
     }
-
 
 }
