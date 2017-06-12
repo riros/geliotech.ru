@@ -6,7 +6,7 @@ python3 manage.py migrate
 
 python manage.py thumbnail clear_delete_all
 echo "start imoprt"
-python manage.py import
+#python manage.py import
 echo "import commplete... restart services"
 systemctl restart uwsgi-app@geliotech
 systemctl restart nginx
