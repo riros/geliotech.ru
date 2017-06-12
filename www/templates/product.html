@@ -2,9 +2,27 @@
 {% load static www_templatetags thumbnail %}
 {% block extraheadcss %}
     <style>
-    .s-products{
-        text-align: left;
-    }
+        .s-products {
+            text-align: left;
+        }
+
+        .tovartext {
+            float: left;
+
+        }
+
+        @media (min-width: 768px) {
+            .tovartext {
+                float: left;
+
+            }
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .s-products-item-descr, .s-products-item-performance {
+                float: left;
+            }
+        }
     </style>
 {% endblock %}
 {% block content %}
