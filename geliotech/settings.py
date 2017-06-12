@@ -30,7 +30,8 @@ else:
         raise "Нужно определить секретный ключ geliotech/secret/py "
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = platform.node() != PRODUCTION_PLATFORM_NODE
+DEBUG = False
+#platform.node() != PRODUCTION_PLATFORM_NODE
 
 ALLOWED_HOSTS = ['*']
 
@@ -137,7 +138,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 THUMBNAIL_PRESERVE_FORMAT = True
-THUMBNAIL_DEBUG = platform.node() != PRODUCTION_PLATFORM_NODE
+THUMBNAIL_DEBUG = False 
+#platform.node() != PRODUCTION_PLATFORM_NODE
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -151,12 +153,12 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file'],
-            'level': 'DEBUG',
+            'level': 'ERROR',
             'propagate': True,
         },
         'sorl.thumbnail': {
             'handlers': ['file'],
-            'level': 'DEBUG',
+            'level': 'ERROR',
             'propagate': True,
         },
 
