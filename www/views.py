@@ -7,6 +7,7 @@ from django.http import JsonResponse, HttpResponseForbidden
 from django.core.mail import send_mail
 from datetime import date
 import os
+from django.views.decorators.cache import cache_page
 
 
 # Create your views here.
@@ -36,10 +37,12 @@ def activeatemenusection(menu, i):
     return menu
 
 
+@cache_page(60 * 60 * 24 * 30)
 def index(request):
     return page(request, 'index')
 
 
+@cache_page(60 * 60 * 24 * 30)
 def page(request, page):
     if not os.path.exists(os.path.join(settings.BASE_DIR, 'www/templates/' + page + '.html')):
         page = 'index'
@@ -52,6 +55,7 @@ def page(request, page):
                   })
 
 
+@cache_page(60 * 60 * 24 * 30)
 def catalog(r, catalog_alias):
     catalog = Catalog.objects.get(alias=catalog_alias, active=True)
     products = Product.objects.filter(cat=catalog_alias, active=True)
@@ -68,6 +72,7 @@ def catalog(r, catalog_alias):
                   )
 
 
+@cache_page(60 * 60 * 24 * 30)
 def product(r, catalog_alias, id):
     catalog = Catalog.objects.get(alias=catalog_alias)
     product = Product.objects.get(id=id)
@@ -84,6 +89,7 @@ def product(r, catalog_alias, id):
                   )
 
 
+@cache_page(60 * 60 * 24 * 30)
 def news_list(r):
     blogs = Blog.objects.filter(active=True, active_from_date__lte=date.today())[:6]
     return render(r, 'bloglist.html', context={
@@ -94,6 +100,7 @@ def news_list(r):
     })
 
 
+@cache_page(60 * 60 * 24 * 30)
 def news_item(r, id):
     blog = Blog.objects.get(id=id, active=True, active_from_date__lte=date.today())
     return render(r, 'newsitem.html',

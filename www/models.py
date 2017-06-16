@@ -9,6 +9,7 @@ from django.utils.html import format_html
 
 from sorl.thumbnail import ImageField
 from sorl_cropping import ImageRatioField
+from django.core.cache import cache
 # Create your models here.
 
 class Catalog(Model):
@@ -30,6 +31,12 @@ class Catalog(Model):
     def __str__(self):
         return self.desc
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+@receiver(post_save, sender=Catalog)
+def Catalog_post_save_handler(sender, **kwargs):
+    cache.clear()
 
 def dynamic_path(inst, fn):
     name, ext = path.splitext(fn)
@@ -92,6 +99,10 @@ class Product(Model):
         verbose_name_plural = 'Товары'
 
 
+@receiver(post_save, sender=Product)
+def Catalog_post_save_handler(sender, **kwargs):
+    cache.clear()
+
 class Blog(Model):
     title = CharField(max_length=255, null=False, verbose_name='Заголовок')
     date_add = DateField(auto_now=True, verbose_name='Дата')
@@ -107,3 +118,8 @@ class Blog(Model):
 
     def __str__(self):
         return self.title
+
+
+@receiver(post_save, sender=Blog)
+def Catalog_post_save_handler(sender, **kwargs):
+    cache.clear()
