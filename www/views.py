@@ -115,10 +115,10 @@ def news_item(r, id):
 def sendmail(request):
     from_name = request.GET.get('name', '')
     phone = request.GET.get('phone', '')
-    subject = request.GET.get('admin_email', '')
-    message = request.GET.get('Сообщение с geliotech.ru от %s тел %s ' % (from_name, phone), '')
+    subject = request.GET.get('form_subject', '')
+    message = 'Сообщение с geliotech.ru от %s тел %s ' % (from_name, phone)
     if phone and from_name:
-        send_mail(subject, message, 'riros@ya.ru', ['riros@tbo23.ru'])
+        send_mail(subject, message, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER])
     else:
         return HttpResponseForbidden('Случилась ошибка... номер не понятен.')
     return JsonResponse({})

@@ -53,7 +53,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
     'django.middleware.cache.UpdateCacheMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,11 +138,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SRC_SITE = "http://ekoproekt-energo.ru/"
 
-EMAIL_HOST = 'smpt.ya.ru'
-EMAIL_HOST_USER = 'your-username@gmail.com'
-EMAIL_HOST_PASSWORD = 'your-password'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = 'solntex12@mail.ru'
+
+# in file .secret
+EMAIL_HOST_PASSWORD = '*******'
+EMAIL_PORT = 2525
+# EMAIL_USE_SSL = True
 EMAIL_USE_TLS = True
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+try:
+    from geliotech.secret import EMAIL_HOST_PASSWORD
+except:
+    raise Exception("Нужно определить секретный ключ geliotech/secret.py ")
 
 THUMBNAIL_PRESERVE_FORMAT = True
 #THUMBNAIL_FORMAT = 'WEBP'
@@ -173,3 +184,10 @@ LOGGING = {
     },
 
 }
+
+if DEBUG:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        }
+    }
