@@ -39,8 +39,9 @@ class Command(BaseCommand):
         soup_cats = lvl1.find("ul", class_="styled")
         lis = soup_cats.find_all('li')
         for li in lis:
-            if len(li.a['href']):
-                cat_links.update({li.a['href'].replace('/', ''): li.a.text})
+            if li.a.has_attr('href')  and len(li.a['href']):
+                cat_link = {li.a['href'].replace('/',''): li.a.text}
+                cat_links.update(cat_link)
 
         for cat_alias, hr_name in cat_links.items():
             catalog, created = Catalog.objects.get_or_create(alias=cat_alias)
@@ -90,6 +91,8 @@ class Command(BaseCommand):
                 product, created = Product.objects.get_or_create(
                     name=item['name'],
                 )
+                if created:
+                    print( 'new product:', product)
 
                 if created or product.imported:
                     product.cat = Catalog.objects.get(alias=item['catalog'])
@@ -111,4 +114,5 @@ class Command(BaseCommand):
 
                     product.price = item['price']
                     product.imported=True
-                    product.save()
+                    
+                    
